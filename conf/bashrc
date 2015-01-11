@@ -43,3 +43,9 @@ export PROJECT_HOME=$HOME/Devel
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export VIRTUALENVWRAPPER_TMPDIR='~/.cache/virtualenvs'
 source /usr/bin/virtualenvwrapper.sh
+
+# Default editor 
+export EDITOR='vim'
+
+# tmuxinator compilation 
+source ~/.bin/tmuxinator.bash 
