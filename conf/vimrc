@@ -1,5 +1,5 @@
 "Author	: Clement "DraZoro" Mahlangu
-"Date	: 18 December 2014
+"Date	: 16 June 2015
 "Email  : clement.mahlangu@gmail.com
 
 set nocompatible
@@ -11,6 +11,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-flagship'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'Rykka/riv.vim.git'
@@ -22,12 +23,14 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/Vim-Jinja2-Syntax'
 Plugin 'sukima/xmledit'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'digitaltoad/vim-jade'
 Plugin 'anyakichi/vim-surround'
 Plugin 'Raimondi/delimitMate'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'sjl/badwolf'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'sjl/badwolf'
+Plugin 'lervag/vimtex'
+
 
 " End of plugins for Vundle
 call vundle#end()
@@ -43,7 +46,7 @@ autocmd FileType python set sts=4
 set t_Co=256
 syntax on
 set background=dark
-colorscheme distinguished
+colorscheme badwolf
 
 
 " Allow auto indentation
@@ -51,6 +54,7 @@ set autoindent
 
 " Keeping track of location 
 set cursorline 
+set cursorcolumn
 
 " Ignore case when searching"
 set ignorecase 
@@ -69,6 +73,11 @@ set ruler
 "s All numbers are decimal system. 
 set nrformats=
 
+" Spelling settings
+" set spell
+set spelllang=en
+set spellsuggest=5
+
 " Increased search history
 set history=100
 
@@ -84,12 +93,18 @@ set softtabstop=2
 " Set grep to always generate a file-name "
 set grepprg=grep\ -nH\ $*
 
+" Settings for vim-flagship
+set laststatus=2
+set showtabline=2
+set guioptions-=e
+
+
 " Some short cut keys "
 nmap <silent> <F3> :NERDTreeToggle<CR>
 nmap <silent> <F4> :GundoToggle<CR>
 
 " Shortcuts for moving between tabs
-" Alt-j to move to the tab to the left 
+" Alet-j to move to the tab to the left 
 nmap <A-j> gT
 " Alt-k to move to the tab to the right
 nmap <A-k> gt
@@ -118,6 +133,20 @@ let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
 let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
 let g:UltiSnipsUsePythonVersion    = 2
+
+" Flagship "
+let g:tablabel = "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
+let g:tabprefix ='%{flagship#id()}'
+
+" Syntastic "
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Number Toggle 
 let g:NumberToggleTrigger="<F5>"
