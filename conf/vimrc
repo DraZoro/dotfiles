@@ -1,40 +1,33 @@
 "Author	: Clement "DraZoro" Mahlangu
-"Date	: 16 June 2015
-"Email  : clement.mahlangu@gmail.com
+"Date	: 15 May 2026
+
+call plug#begin()
 
 set nocompatible
 filetype off
 
-" Include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+" TODO: snippets
+" Plug 'SirVer/ultisnips'  
+" Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/syntastic'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/Vim-Jinja2-Syntax'
+" Plug 'sukima/xmledit'
+" Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plug 'digitaltoad/vim-jade'
+" Plug 'anyakichi/vim-surround'
+" Plug 'Raimondi/delimitMate'
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'sjl/badwolf'
+" Plug 'lervag/vimtex'
 
-Plugin 'gmarik/Vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-flagship'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-sensible'
-Plugin 'Rykka/riv.vim.git'
-Plugin 'SirVer/ultisnips'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim.git'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/Vim-Jinja2-Syntax'
-Plugin 'sukima/xmledit'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'digitaltoad/vim-jade'
-Plugin 'anyakichi/vim-surround'
-Plugin 'Raimondi/delimitMate'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'sjl/badwolf'
-Plugin 'lervag/vimtex'
+call plug#end()
 
 
-" End of plugins for Vundle
-call vundle#end()
-" filetype plugin indent on
 filetype plugin on 
 
 " Modeline for python
@@ -100,53 +93,48 @@ set guioptions-=e
 
 
 " Some short cut keys "
-nmap <silent> <F3> :NERDTreeToggle<CR>
-nmap <silent> <F4> :GundoToggle<CR>
+" nmap <silent> <F3> :NERDTreeToggle<CR>
 
 " Shortcuts for moving between tabs
 " Alet-j to move to the tab to the left 
-nmap <A-j> gT
+" nmap <A-j> gT
 " Alt-k to move to the tab to the right
-nmap <A-k> gt
+" nmap <A-k> gt
 
 " Plugin configurations "
 "
 " Powerline 
 
-let g:powerline_symbols = "fancy"
-" Gundo "
-let g:gundo_width = 40
-let g:gundo_preview_height = 10
-let g:gundo_right = 1
+" let g:powerline_symbols = "fancy"
 
 " YouCompleteMe "
-let g:ycm_add_preview_to_complteopt=0
-let g:ycm_collect_identifiers_from_tags_files = 1 
-let g:ycm_use_ultisnips_completer = 1 
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_complete_in_comments = 1 
-let g:ycm_complete_in_strings = 1 
-set completeopt-=preview
+" let g:ycm_add_preview_to_complteopt=0
+" let g:ycm_collect_identifiers_from_tags_files = 1 
+" let g:ycm_use_ultisnips_completer = 1 
+" let g:ycm_seed_identifiers_with_syntax = 1 
+" let g:ycm_complete_in_comments = 1 
+" let g:ycm_complete_in_strings = 1 
+" set completeopt-=preview
 " Ultasnips "
-let g:UltiSnipsExpandTrigger       = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
-let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
-let g:UltiSnipsUsePythonVersion    = 2
+" let g:UltiSnipsExpandTrigger       = "<c-j>"
+" let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+" let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
+" let g:UltiSnipsUsePythonVersion    = 2
 
 " Flagship "
-let g:tablabel = "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
-let g:tabprefix ='%{flagship#id()}'
+" let g:tablabel = "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
+" let g:tabprefix ='%{flagship#id()}'
 
 " Syntastic "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " Number Toggle 
 let g:NumberToggleTrigger="<F5>"
